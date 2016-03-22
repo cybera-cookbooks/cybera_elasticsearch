@@ -6,8 +6,9 @@
 include_recipe "java"
 
 # Install ElasticSearch and set up service
+version = node[:elasticsearch][:version]
 apt_repository "elasticsearch" do
-  uri "http://packages.elasticsearch.org/elasticsearch/1.5/debian"
+  uri "http://packages.elasticsearch.org/elasticsearch/#{version}/debian"
   distribution "stable"
   components ["main"]
   key "http://packages.elasticsearch.org/GPG-KEY-elasticsearch"
